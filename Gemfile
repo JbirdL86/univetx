@@ -11,6 +11,18 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
+# Use cross origing resourse sharing
+gem "rack-cors"
+
+# Use devise for authorization and authentication
+gem "devise"
+
+# Use jwt to handle the use of JWT tokens for user authentication.
+gem "devise-jwt"
+
+# Use jsonapi-serializer to serialize ruby objects in JSON format
+gem "jsonapi-serializer"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
