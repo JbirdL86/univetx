@@ -1,2 +1,7 @@
 class ApplicationController < ActionController::API
+    before_action :configure_permitted_paremeters, if: :devise_controller?
+
+    def configure_permitted_paremeters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :name])
+    end
 end
