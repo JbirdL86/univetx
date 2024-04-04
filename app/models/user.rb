@@ -19,6 +19,6 @@ class User < ApplicationRecord
   end
   
   def client?
-    type == 'seller'
+    type == 'client'
   end
 end
