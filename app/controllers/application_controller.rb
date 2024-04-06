@@ -3,6 +3,6 @@ class ApplicationController < ActionController::API
     devise_group :user, contains: [:vet, :client]
 
     def configure_permitted_paremeters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :type, :name, :last_name, :speciality, :college_id, :address, :country, :city])
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :type, :name, :last_name, :speciality, :vet_id, :client_id, :address, :country, :city])
     end
 end
