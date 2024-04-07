@@ -11,8 +11,12 @@ Rails.application.routes.draw do
         registrations: 'api/v1/users/registrations'
       }
     end
-    resources :vets, :clients, shallow: true do
+  end
 
+  namespace :api do
+    namespace :v1 do
+      resources :clients
+      resources :vets
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
