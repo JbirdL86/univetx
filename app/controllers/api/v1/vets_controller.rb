@@ -2,9 +2,10 @@ module Api::V1
     class VetsController < ApplicationController
 
         def index
-            users = Vet.all
+            vets = Vet.all            
+            vets_json = VetSerializer.new(vets).serializable_hash.to_json
             
-            render json: users, status: 200
+            render json: vets_json, status: 200
         end
         
         def show

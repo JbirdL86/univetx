@@ -2,9 +2,10 @@ module Api::V1
     class ClientsController < ApplicationController
 
         def index
-            users = Client.all
+            clients = Client.all            
+            clients_json = ClientSerializer.new(clients).serializable_hash.to_json
             
-            render json: users, status: 200
+            render json: clients_json, status: 200
         end
         
         def show
