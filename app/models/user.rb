@@ -15,10 +15,10 @@ class User < ApplicationRecord
   end
   
   def vet?
-    type == 'vet'
+    type == 'Vet'
   end
   
   def client?
-    type == 'seller'
+    type == 'Client'
   end
 end
