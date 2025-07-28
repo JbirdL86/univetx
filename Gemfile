@@ -50,6 +50,18 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+
+  # Use Rspec tests for api endpoints
+  gem 'rspec-rails'
+
+  # Use Factorybot for object generator
+  gem 'factory_bot_rails'
+
+  # Use fake data
+  gem 'faker'
+
+  # Use jsonapi-rspec for json:api responses matchers
+  gem 'jsonapi-rspec'
 end
 
 group :development do

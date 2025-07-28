@@ -5,9 +5,11 @@ class User < ApplicationRecord
   include Devise::JWT::RevocationStrategies::JTIMatcher
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
+         :recoverable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
+  validates :email, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
+  validates :password, presence: true
 
   def as_json(options={})
     
