@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       sessions: 'api/v1/users/sessions',
       registrations: 'api/v1/users/registrations'
     }
+
+  post '/api/v1/firebase_login', to: 'api/v1/users/firebase_sessions#create'
  
   namespace :ap do
     namespace :v1 do
