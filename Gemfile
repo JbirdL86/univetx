@@ -23,6 +23,12 @@ gem "devise-jwt"
 # Use jsonapi-serializer to serialize ruby objects in JSON format
 gem "jsonapi-serializer"
 
+# Use FireBase SDK gem to set customToken for front-end
+gem 'firebase-admin'
+
+gem 'firebase-admin-sdk'
+
+gem 'firebase'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -62,6 +68,9 @@ group :development, :test do
 
   # Use jsonapi-rspec for json:api responses matchers
   gem 'jsonapi-rspec'
+
+  # Use dotenv-rails for Google_Application_Credentials key
+  gem 'dotenv-rails'
 end
 
 group :development do

@@ -1,3 +1,5 @@
+# app/models/user.rb
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -6,13 +8,12 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable,
-         :jwt_authenticatable, jwt_revocation_strategy: self
+         :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist # <-- Correctly referencing the new model
 
   validates :email, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
   validates :password, presence: true
 
   def as_json(options={})
-    
     super(options.merge({ methods: :type }))
   end
   
