@@ -1,5 +1,6 @@
 module Api::V1
     class AnimalsController < ApplicationController
+        before_action :authenticate_user!
 
         def index
             animals = Animal.all            
@@ -10,7 +11,7 @@ module Api::V1
         
         def show
             @an = Animal.find_by(id: params[:id])
-            render json: Animal.new(@user).serializable_hash.to_json
+            render json: Animal.new(@an).serializable_hash.to_json
         end
     end
 end
