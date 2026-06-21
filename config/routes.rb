@@ -1,24 +1,32 @@
 Rails.application.routes.draw do
-  scope :api do
-    scope :v1 do
-      devise_for :users, path: '', path_names: {
-        sign_in: 'login',
-        sign_out: 'logout',
-        registration: 'signup'
-      },
-      controllers: {
-        sessions: 'api/v1/users/sessions',
-        registrations: 'api/v1/users/registrations'
-      }
-    end
-  end
 
+  devise_for :users, 
+    path: '', 
+    path_names: {
+      sign_in: 'login',
+      sign_out: 'logout',
+      registration: 'signup'
+    },
+    controllers: {
+      sessions: 'api/v1/users/sessions',
+      registrations: 'api/v1/users/registrations'
+    }
+
+  post '/api/v1/firebase_login', to: 'api/v1/users/firebase_sessions#create'
+ 
   namespace :api do
     namespace :v1 do
-      resources :clients
-      resources :vets
-    end
+      resources :vets do
+        resources :clients do
+          resources :animals
+        end
+      end
+    end 
   end
+
+  resources :vets
+
+  # ... other API resources
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

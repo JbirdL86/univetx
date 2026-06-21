@@ -1,5 +1,5 @@
 class Client < User
-    has_many :afiliations, foreign_key: :client_id
+    has_many :afiliations
     has_many :vets, through: :afiliations
-    has_many :animals, foreign_key: :client_id
+    has_many :animals, dependent: :destroy
 end
